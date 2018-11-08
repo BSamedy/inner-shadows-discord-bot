@@ -5,7 +5,6 @@ const prefix = '!';
 const admprefix = '!!';
 const fs = require('fs');
 const ownerID = fs.readFileSync("ownerID.txt", "utf8");
-var log = require('quick.log');
 
 const EventEmitter = require('events');
 	class MyEmitter extends EventEmitter {}
@@ -86,9 +85,20 @@ client.on('message', message => {
 		const attachment = new Attachment(buffer, 'redstiker.png');
 		message.channel.send(attachment)};	
 	
-	if (~message.content.toLowerCase().indexOf('ну эт не суть') || (~message.content.toLowerCase().indexOf('ну это не суть') )) {
+	if (~message.content.toLowerCase().indexOf('ну эт не суть') || (~message.content.toLowerCase().indexOf('ну это не суть')) || (~message.content.toLowerCase().indexOf('но это не суть'))|| (~message.content.toLowerCase().indexOf('но эт не суть'))) {
 		message.reply('***А суть в том, что всегда есть возможность увеличить количество выпусков Вт на единицу времени! Подписка на Patreon и донаты: \nhttps://www.patreon.com/faland\nhttps://vk.cc/7JY0Ng \n\nНа правах рекламы!***')};	
-});
+
+	if (~message.content.toLowerCase().indexOf('сажу') && (~message.content.toLowerCase().indexOf('рожу'))) {
+		const buffer = fs.readFileSync('./buff_files/saja.png');
+		const attachment = new Attachment(buffer, 'saja.png');
+		message.channel.send(attachment)};	
+
+		
+		
+	if (((~message.content.toLowerCase().indexOf('написан')) && (~message.content.toLowerCase().indexOf('бот')) || ~message.content.toLowerCase().indexOf('язык'))) {
+		message.reply('***Я, кстати, создан на Node.js с использованием библиотек discord.js и filesystem.js\nРепозиторий на GitHub: https://github.com/BSamedy/inner-shadows-discord-bot***')};		
+		
+		});
 
 //client.on('message', message => {
 	//if (~message.content.toLowerCase().indexOf('горан') || ~message.content.toLowerCase().indexOf('керчва') ) {
