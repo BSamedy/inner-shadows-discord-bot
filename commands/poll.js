@@ -10,25 +10,29 @@ else {
 	var reaction = ["\u0030\u20E3","\u0031\u20E3","\u0032\u20E3","\u0033\u20E3","\u0034\u20E3","\u0035\u20E3", "\u0036\u20E3","\u0037\u20E3","\u0038\u20E3","\u0039\u20E3","\u2705\u20E3"]
 	var n = message.content.split('var=')[1];
 	n = n.split('$')[0];
-	var a = 1;
-	const embed = new Discord.RichEmbed()
-		.setColor(0xffffff)
-		.setTimestamp()
-		.setFooter('Выбирайте с умом')
-		.setDescription(poll_msg)
-		.setTitle('Голосование по квесту');
+	n = +n;
+	if (!!n == false) {
+		message.reply('С такими данными нельзя создать опрос!');	}
+	else {
+		var a = 1;
+		const embed = new Discord.RichEmbed()
+			.setColor(0xffffff)
+			.setTimestamp()
+			.setFooter('Выбирайте с умом')
+			.setDescription(poll_msg)
+			.setTitle('Голосование по квесту');
 
-	let msg = await message.channel.send(embed);
-	while (n > 0) {
-		await msg.react(reaction[a]);
-		a++;
-		n--;
-		};
+		let msg = await message.channel.send(embed);
+		while (n > 0) {
+			await msg.react(reaction[a]);
+			a++;
+			n--;
+			};
 
-	message.delete(50)
-		.then(msg => console.log(`Deleted message from ${msg.author.username}`))
-		.catch(console.error);
-	};
+		message.delete(50)
+			.then(msg => console.log(`Deleted message from ${msg.author.username}`))
+			.catch(console.error);
+		}};
 };
 
   

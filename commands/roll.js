@@ -52,10 +52,11 @@ exports.run = (client, message, args, ops) => {
 		else {
 			var roll = [];
 			while (d_0 > 0) {
-				roll.push(':game_die:' + getRandomInt(1,d_n));
+				roll.push(':game_die: ' + getRandomInt(1,d_n));
 				d_0--;
 				};
-			message.reply(roll);
+			console.log (roll [0]);
+			message.reply('\n' + roll);
 			};
 		};
 	}	
